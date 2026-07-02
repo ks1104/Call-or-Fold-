@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int n;
+	cin>>n;
+	vector<double> prob(n+1);
+	prob[0]=0;
+	for(int i=1;i<=n;i++){
+	    cin>>prob[i];
+	}
+	double evalue=0;
+
+
+for(int i=1;i<=n;i++){
+	    evalue+=prob[i];
+	}
+double prev=0;
+for(int i=1;i<=n;i++){
+	   evalue+=2*(prev+prob[i-1])*prob[i];
+	   prev=(prev+prob[i-1])*prob[i];
+	}
+
+
+
+  cout<<fixed<<setprecision(6)<<evalue;
+  return 0;
+}
